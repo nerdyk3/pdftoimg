@@ -7,8 +7,10 @@ def usingpdf2img():
         os.mkdir("image")
     except:
         print("already exist")
+    page_number = 0 #init page number
     for page in pages:
-        page.save("image/{}.tiff".format(page),'TIFF',quality = 10) #saving
+        page_number +=1 #increasing page number
+        page.save("image/{}.tiff".format(page_number),'TIFF',quality = 10) #saving
 
 if __name__ == "__main__":
     usingpdf2img()
