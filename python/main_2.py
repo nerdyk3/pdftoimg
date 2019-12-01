@@ -3,11 +3,12 @@ import os
 from PIL import Image
 
 def pdf2img():
-    open_doc = fitz.open("../Akash Deep_CV.pdf") #reading pdf
+    file_path = input("enter your file path:")
+    open_doc = fitz.open(file_path) #reading pdf
     try: #if image folder not availble 
         os.mkdir("image_2")
     except:
-        print("already exist")
+        pass
     for page in range(0,open_doc.pageCount): #runing on per page
         pages = open_doc[page] #opening of doc
         pix = pages.getPixmap() #making frame
